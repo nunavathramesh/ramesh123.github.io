@@ -1,0 +1,92 @@
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+/* Base Styles */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; line-height:1.5; background:#f0f2f5; color:#111; }
+a { text-decoration:none; color:#2466d6; }
+img { max-width:100%; height:auto; display:block; }
+
+/* Container */
+.container { max-width:1200px; margin:0 auto; padding:1rem; }
+
+/* Header */
+header { display:flex; justify-content:space-between; align-items:center; padding:1rem 0; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.1); position:sticky; top:0; z-index:100; }
+.brand { font-weight:bold; font-size:clamp(1rem, 4vw, 1.5rem); }
+nav { display:flex; gap:1rem; align-items:center; }
+nav a { padding:.4rem .8rem; border-radius:6px; transition:0.3s; }
+nav a:hover { background:#e0eaff; }
+.hamburger { display:none; font-size:2rem; background:none; border:none; cursor:pointer; }
+
+/* Mobile Menu */
+.mobile-menu {
+  display:none;
+  padding:.5rem 0;
+  overflow:hidden;
+  max-height:0;
+  transition:max-height 0.3s ease;
+}
+.mobile-menu.open {
+  display:block;
+  max-height:500px;
+}
+
+/* Hero Section */
+.hero { display:grid; grid-template-columns:1fr; gap:1rem; padding:2rem 0; align-items:center; text-align:center; }
+.hero h1 { font-size:clamp(1.6rem, 6vw, 2.5rem); margin-bottom:.5rem; }
+.hero p { font-size:clamp(1rem, 3vw, 1.2rem); color:#555; margin-bottom:1rem; }
+.hero .btn { display:inline-block; padding:.8rem 1.5rem; background:#2466d6; color:white; border-radius:8px; transition:0.3s; }
+.hero .btn:hover { background:#1a4fb3; }
+
+/* Features Section */
+.features { 
+  display:grid; 
+  grid-template-columns:1fr; 
+  gap:1rem; 
+  padding:2rem 0; 
+}
+
+/* Feature blocks with different background colors */
+.feature { 
+  padding:1.5rem; 
+  border-radius:12px; 
+  box-shadow:0 2px 8px rgba(0,0,0,0.1); 
+  text-align:center; 
+  transition: transform 0.3s; 
+  color: white; /* make text readable */
+}
+
+/* Different background colors for each feature */
+.features .feature:nth-child(1) { background-color: #2466d6; } /* blue */
+.features .feature:nth-child(2) { background-color: #28a745; } /* green */
+.features .feature:nth-child(3) { background-color: #ff7f50; } /* coral/orange */
+
+/* Hover effect */
+.feature:hover { transform:translateY(-5px); }
+
+/* Cards (Pricing / Contact) */
+.card { background:yellow; padding:2rem; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1); margin:2rem 0; text-align:center; }
+.card h2 { margin-bottom:1rem; font-size:clamp(1.4rem, 4vw, 2rem); }
+.card p { color:#555; }
+
+/* Footer */
+footer { text-align:center; color:#555; padding:1.5rem 0; font-size:.9rem; margin-top:2rem; }
+
+/* Media Queries */
+@media (min-width:600px){
+  .features { grid-template-columns:repeat(2,1fr); }
+  .hero { text-align:left; }
+}
+
+@media (min-width:900px){
+  .hero { grid-template-columns:1fr 1fr; text-align:left; }
+  .features { grid-template-columns:repeat(3,1fr); }
+  nav { display:flex; }
+  .hamburger { display:none; }
+}
+
+@media (max-width:599px){
+  nav { display:none; }
+  .hamburger { display:block; }
+}
